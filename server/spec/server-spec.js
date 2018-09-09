@@ -1,22 +1,23 @@
 /* You'll need to have MySQL running and your Node server running
  * for these tests to pass. */
-
+/*eslint-disable */
 var mysql = require('mysql');
 var request = require('request'); // You might need to npm install the request module!
 var expect = require('chai').expect;
+var cred = require('./ryanlogin');
 
 describe('Persistent Node Chat Server', function() {
   var dbConnection;
-
+  console.log('this is the username: ', cred.username);
   beforeEach(function(done) {
     dbConnection = mysql.createConnection({
-      user: 'student',
-      password: 'student',
+      user: cred.username,
+      // password: cred.pass,
       database: 'chat'
     });
     dbConnection.connect();
 
-       var tablename = ""; // TODO: fill this out
+    var tablename = ""; // TODO: fill this out
 
     /* Empty the db table before each test so that multiple tests
      * (or repeated runs of the tests) won't screw each other up: */
