@@ -5,3 +5,5 @@ var mysql = require('mysql');
 // and to the database "chat".
 
 
+//where does does hyphen you 
+// mysql node
