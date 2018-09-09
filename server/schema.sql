@@ -7,7 +7,7 @@ CREATE TABLE messages (
   id int NOT NULL AUTO_INCREMENT,
   userid int NOT NULL,
   text varchar(140),
-  roomid int NOT NULL,
+  roomname varchar(10) NOT NULL,
   PRIMARY KEY (id)
 );
 
@@ -18,11 +18,11 @@ CREATE TABLE users (
   PRIMARY KEY (id)
 );
 
-CREATE TABLE rooms (
-  id int NOT NULL AUTO_INCREMENT,
-  roomname varchar(10) NOT NULL,
-  PRIMARY KEY (id)
-);
+-- CREATE TABLE rooms (
+--   id int NOT NULL AUTO_INCREMENT,
+--   roomname varchar(10) NOT NULL,
+--   PRIMARY KEY (id)
+-- );
 
 
 /*  Execute this file from the command line by typing:
