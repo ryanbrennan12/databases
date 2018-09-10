@@ -15,6 +15,7 @@ CREATE TABLE messages (
 CREATE TABLE users (
   id int NOT NULL AUTO_INCREMENT,
   username varchar(30) NOT NULL,
+  UNIQUE (username),
   PRIMARY KEY (id)
 );
 
