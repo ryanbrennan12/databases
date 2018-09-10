@@ -5,6 +5,10 @@ module.exports = {
     get: function (req, res) {}, // a function which handles a get request for all messages
     post: function (req, res) {
       console.log('this is the MESSAGES!!!!: ', req.body);
+      var msg = req.body;
+      models.messages.post(msg, () => {
+        res.status(201).end();
+      });
     } // a function which handles posting a message to the database
   },
 
@@ -13,11 +17,12 @@ module.exports = {
     get: function (req, res) {},
     post: function (req, res) {
       var user = req.body.username;
-      console.log('this is the USERS: ', user);
-      // models.users.post(user, () => {
-      //   res.sendStatus(201);
-      // });
-      
+      // console.log('this is the USERS: ', user);
+      models.users.post(user, () => {
+        // res.send('done!');
+        // res.sendStatus(201);
+        res.status(201).end();
+      });
     }
   }
 };
