@@ -2,7 +2,16 @@ var db = require('../db');
 
 module.exports = {
   messages: {
-    get: function () {}, // a function which produces all the messages
+    get: function (callback) {
+      db.query('SELECT * FROM messages', (err, results) => {
+        if (err) {
+          console.log('ERROR', err);
+          throw err;
+        }
+        console.log('GET RESULTS', results);
+        callback(results);
+      });
+    }, // a function which produces all the messages
     post: function (msg, callback) {
       console.log('DOUBLE CHECK MSG', msg);
       db.query('SELECT users.id FROM users WHERE users.username =?', [msg.username], (err, result) => {
