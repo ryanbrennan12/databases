@@ -31,4 +31,4 @@ dbConnection.connect();
 //     console.log('These are the results: ', results);
 //   });
 
-exports.connection = dbConnection;
+module.exports = dbConnection;
