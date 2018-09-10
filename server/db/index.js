@@ -5,9 +5,30 @@ var mysql = require('mysql');
 // and to the database "chat".
 
 
-exports.dbConnection = mysql.createConnection({
+dbConnection = mysql.createConnection({
   user: 'root',
   password: '',
   database: 'chat'
 });
 dbConnection.connect();
+
+// dbConnection.query('INSERT INTO messages(userid, text, roomname) VALUES("444", "Hey I the first text", "newRoom")', 
+//   (err, results, fields) => {
+//     if (err) {
+//       console.log('I am an error: ', err);
+//       throw err;
+//     }
+//     console.log('Record inserted successfully');
+//     console.log('These are the results: ', results);
+//   });
+
+// dbConnection.query('SELECT * FROM messages', 
+//   (err, results, fields) => {
+//     if (err) {
+//       console.log('I am an error: ', err);
+//       throw err;
+//     }
+//     console.log('These are the results: ', results);
+//   });
+
+exports.connection = dbConnection;
