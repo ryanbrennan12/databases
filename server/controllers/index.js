@@ -4,7 +4,7 @@ module.exports = {
   messages: {
     get: function (req, res) {}, // a function which handles a get request for all messages
     post: function (req, res) {
-      console.log('this is the body: ', req.body);
+      console.log('this is the MESSAGES: ', req.body);
     } // a function which handles posting a message to the database
   },
 
@@ -12,7 +12,12 @@ module.exports = {
     // Ditto as above
     get: function (req, res) {},
     post: function (req, res) {
-      console.log('this is the body: ', req);
+      var user = req.body.username;
+      console.log('this is the USERS: ', user);
+      models.users.post(user, () => {
+        
+      });
+      
     }
   }
 };
