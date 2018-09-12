@@ -19,7 +19,8 @@ module.exports = {
           console.log('ERROR IS', err);
           throw err;
         }
-        console.log('THIS IS MESSAGES RESULT', result[0].id);
+        // console.log('this is RESULT line 22: ', result);
+        // console.log('THIS IS MESSAGES RESULT', result[0].id);
         db.query('INSERT INTO messages(userid, text, roomname) VALUES(?, ?, ?)', [result[0].id, msg.message, msg.roomname], (err, result) => {
           if (err) {
             console.log('INNER ERROR IS', err);

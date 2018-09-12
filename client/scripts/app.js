@@ -61,9 +61,8 @@ var app = {
     $.ajax({
       url: app.server,
       type: 'GET',
-      data: { order: '-createdAt' },
+      // data: { order: '-createdAt' },
       success: function(data) {
-        console.log('this is DATA', data.results);
         // data = {results: [{}]}
         // Don't bother if we have nothing to work with
         if (!data.results || !data.results.length) { return; }
@@ -73,7 +72,6 @@ var app = {
 
         // Get the last message
         var mostRecentMessage = data.results[data.results.length - 1];
-
         // Only bother updating the DOM if we have a new message
         if (mostRecentMessage.objectId !== app.lastMessageId) {
           // Update the UI with the fetched rooms
@@ -138,6 +136,7 @@ var app = {
   },
 
   renderRoom: function(roomname) {
+    console.log('this is room', roomname);
     // Prevent XSS by escaping with DOM methods
     var $option = $('<option/>').val(roomname).text(roomname);
 

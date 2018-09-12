@@ -8,9 +8,9 @@ CREATE TABLE messages (
   userid int(11) NOT NULL,
   text varchar(140),
   roomname varchar(10) NOT NULL,
-  PRIMARY KEY (objectId),
-  -- FOREIGN KEY (userid) REFERENCES users(id)
+  PRIMARY KEY (objectId)
 );
+  -- FOREIGN KEY (userid) REFERENCES users(id)
 
 /* Create other tables and define schemas for them here! */
 CREATE TABLE users (
