@@ -8,7 +8,7 @@ module.exports = {
           console.log('ERROR', err);
           throw err;
         }
-        console.log('GET RESULTS', results);
+        // console.log('GET RESULTS', results);
         callback(results);
       });
     }, // a function which produces all the messages

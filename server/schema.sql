@@ -4,16 +4,17 @@ USE chat;
 
 CREATE TABLE messages (
   /* Describe your table here.*/
-  id int NOT NULL AUTO_INCREMENT,
-  userid int NOT NULL,
+  objectId int NOT NULL AUTO_INCREMENT,
+  userid int(11) NOT NULL,
   text varchar(140),
   roomname varchar(10) NOT NULL,
-  PRIMARY KEY (id)
+  PRIMARY KEY (objectId),
+  -- FOREIGN KEY (userid) REFERENCES users(id)
 );
 
 /* Create other tables and define schemas for them here! */
 CREATE TABLE users (
-  id int NOT NULL AUTO_INCREMENT,
+  id int(11) NOT NULL AUTO_INCREMENT,
   username varchar(30) NOT NULL,
   UNIQUE (username),
   PRIMARY KEY (id)

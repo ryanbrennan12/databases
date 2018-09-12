@@ -4,7 +4,9 @@ module.exports = {
   messages: {
     get: function (req, res) {
       models.messages.get((data)=>{
-        res.json(data);
+        res.json({'results': data});
+        // data: [{}]
+        // data: {results: [{}]}
       });
     }, // a function which handles a get request for all messages
     post: function (req, res) {
