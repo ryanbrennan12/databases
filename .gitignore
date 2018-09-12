@@ -36,3 +36,5 @@ bower_components/
 
 # logins
 server/spec/ryanlogin.js
+
+.DS_Store
