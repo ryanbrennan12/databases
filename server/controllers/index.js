@@ -10,7 +10,7 @@ module.exports = {
       });
     }, // a function which handles a get request for all messages
     post: function (req, res) {
-      console.log('this is the MESSAGES!!!!: ', req.body);
+      // console.log('this is the MESSAGES!!!!: ', req.body);
       var msg = req.body;
       models.messages.post(msg, () => {
         res.status(201).end();
