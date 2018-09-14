@@ -42,3 +42,8 @@ User.sync()
     console.error(err);
     db.close();
   });
+Message.sync()
+  .then(function() {
+    // Now instantiate an object and save it:
+    return Message.create({userid: 1, text: 'Testing', roomname: 'main'});
+  });
