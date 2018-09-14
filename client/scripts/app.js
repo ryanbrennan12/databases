@@ -3,7 +3,7 @@ var app = {
 
   //TODO: The current 'handleUsernameClick' function just toggles the class 'friend'
   //to all messages sent by the user
-  server: 'http://127.0.0.1:3000/classes/messages',
+  server: 'http://127.0.0.1:3000',
   username: 'anonymous',
   roomname: 'lobby',
   lastMessageId: 0,
@@ -13,6 +13,18 @@ var app = {
   init: function() {
     // Get username
     app.username = window.location.search.substr(10);
+    $.ajax({
+      url: app.server + '/classes/users',
+      type: 'POST',
+      data: JSON.stringify({ username: app.username }),
+      contentType: 'application/json',
+      success: function(data) {
+        console.log('USER CREATED!');
+      },
+      error: function (error) {
+        console.error('chatterbox: Failed to make user', error);
+      }
+    });
 
     // Cache jQuery selectors
     app.$message = $('#message');
@@ -40,7 +52,7 @@ var app = {
 
     // POST the message to the server
     $.ajax({
-      url: app.server,
+      url: app.server + '/classes/messages',
       type: 'POST',
       data: JSON.stringify(message),
       contentType: 'application/json',
@@ -59,7 +71,7 @@ var app = {
 
   fetch: function(animate) {
     $.ajax({
-      url: app.server,
+      url: app.server + '/classes/messages',
       type: 'GET',
       // data: { order: '-createdAt' },
       success: function(data) {
